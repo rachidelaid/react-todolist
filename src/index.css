@@ -1,0 +1,303 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: "Josefin Sans", sans-serif;
+  color: hsl(234, 39%, 85%);
+  background-color: hsl(235, 21%, 11%);
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.bg {
+  min-height: 300px;
+  position: absolute;
+  width: 100%;
+  background-image: url("./images/bg-desktop-dark.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  padding: 4.875rem 26.125rem;
+  position: relative;
+  z-index: 99;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input {
+  background-color: hsl(235, 24%, 19%);
+  padding: 1.125rem 1.4375rem;
+  margin-top: 3.125rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  color: hsl(234, 11%, 52%);
+  -webkit-box-shadow: 0px 9px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 9px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.input input[type="text"],
+.input input[type="text"]:focus {
+  background-color: transparent;
+  border: unset;
+  font-size: 18px;
+  outline: none;
+  color: hsl(234, 39%, 85%);
+}
+
+::placeholder {
+  color: hsl(234, 39%, 85%);
+  opacity: 0.7;
+}
+
+.list {
+  -webkit-box-shadow: 0px 9px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 9px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.todo {
+  background-color: hsl(235, 24%, 19%);
+  padding: 1.125rem 1.4375rem;
+  display: flex;
+  align-items: center;
+  cursor: grab;
+}
+
+.todo:first-child {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.todo {
+  border-bottom: 1px solid hsl(233, 14%, 35%);
+}
+
+.todo.checked {
+  color: hsl(234, 11%, 52%);
+  text-decoration: line-through;
+}
+
+.listFooter {
+  background-color: hsl(235, 24%, 19%);
+  padding: 1.125rem 1.4375rem;
+  display: flex;
+  align-items: center;
+  border-radius: 0 0 0.5rem 0.5rem;
+  color: hsl(234, 11%, 52%);
+  font-size: 14px;
+  justify-content: space-between;
+}
+
+.listFooter .mid {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-around;
+}
+
+.listFooter .mid p,
+.bottomMid p {
+  cursor: pointer;
+}
+
+.listFooter .mid p:not(:last-child) {
+  margin-right: 15px;
+}
+
+.listFooter .active {
+  color: hsl(220, 98%, 61%);
+}
+
+.listFooter .right {
+  cursor: pointer;
+}
+
+.container > p {
+  opacity: 0.7;
+  font-size: 14px;
+  margin-top: 3.125rem;
+  text-align: center;
+}
+
+.bottomMid {
+  background-color: hsl(235, 24%, 19%);
+  padding: 1.125rem 1.4375rem;
+  display: none;
+  align-items: center;
+  border-radius: 0.5rem;
+  color: hsl(234, 11%, 52%);
+  font-size: 14px;
+  justify-content: space-around;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* Custom checkbox */
+.checkPar {
+  display: block;
+  position: relative;
+  padding-left: 1.625rem;
+  cursor: pointer;
+  min-width: 1.625rem;
+  min-height: 1.875rem;
+}
+
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: hsl(235, 24%, 19%);
+  border-radius: 50%;
+  border: 1px solid hsl(233, 14%, 35%);
+}
+
+.checkPar:hover input ~ .checkmark {
+  background-color: hsla(233, 14%, 35%, 0.329);
+}
+
+.checkPar input:checked ~ .checkmark {
+  background-image: linear-gradient(
+    to right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkPar input[type="checkbox"]:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkmark:after {
+  left: 8px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid hsl(234, 39%, 85%);
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* drag and drop */
+.draging {
+  margin: 5px 0;
+  border-radius: 0.5rem !important;
+  border: 1px dashed hsl(220, 98%, 61%) !important;
+  opacity: 0.8;
+  cursor: grabbing;
+}
+
+/* light theme */
+
+body.light {
+  background-color: hsl(0, 0%, 98%);
+}
+
+.light .container {
+  color: hsl(235, 24%, 19%);
+}
+
+.light .bg {
+  background-image: url("./images/bg-desktop-light.jpg");
+}
+
+.light .input {
+  background-color: hsl(234, 39%, 85%);
+  color: hsl(235, 24%, 19%);
+}
+
+.light .input input[type="text"],
+.light .input input[type="text"]:focus {
+  color: hsl(235, 24%, 19%);
+}
+
+.light ::placeholder {
+  color: hsl(235, 24%, 19%);
+  opacity: 0.7;
+}
+
+.light .todo {
+  background-color: hsl(234, 39%, 85%);
+  color: hsl(235, 24%, 19%);
+}
+
+.light .todo {
+  border-bottom: 1px solid hsl(0, 0%, 98%);
+}
+
+.light .todo.checked {
+  color: hsl(235, 24%, 19%);
+}
+
+.light .listFooter {
+  background-color: hsl(234, 39%, 85%);
+  color: hsl(235, 24%, 19%);
+}
+
+.light .checkmark {
+  background-color: hsl(234, 39%, 85%);
+  border: 1px solid hsl(233, 14%, 35%);
+}
+
+.checkPar input:checked ~ .checkmark {
+  background-image: linear-gradient(
+    to right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+}
+
+.light .bottomMid {
+  color: hsl(235, 24%, 19%);
+  background-color: hsl(234, 39%, 85%);
+}
+h1 {
+  color: hsl(0, 0%, 100%);
+}
+
+/* responive */
+
+@media only screen and (max-width: 475px) {
+  .mid {
+    display: none !important;
+  }
+  .bottomMid {
+    display: flex !important;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  .container {
+    padding: 2.9375rem 1.5625rem;
+  }
+}
